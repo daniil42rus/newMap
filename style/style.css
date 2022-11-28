@@ -1,0 +1,26 @@
+#map {
+    height: 100vh;
+}
+
+#addMarker,
+#addPolygon,
+#createPolygon,
+#howManyMarkers {
+    top: 80px;
+    left: 10px;
+    position: absolute;
+    z-index: 1000;
+}
+
+#addPolygon {
+    top: 110px;
+}
+
+#createPolygon {
+    top: 140px;
+}
+
+#howManyMarkers {
+    top: 170px;
+}
+
