@@ -8,11 +8,11 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 ///marker ///
 
-let polygon = [];
+let polygonMap = [];
 let howManyMarkersInput = document.getElementById('howManyMarkers');
 
 function addMarker(e) {
-	console.log(polygon);
+	console.log(polygonMap);
 	lat = e.latlng.lat;
 	lng = e.latlng.lng;
 	console.log(lat);
@@ -23,7 +23,7 @@ function addMarker(e) {
 	let xp = [];
 	let yp = [];
 
-	polygon.forEach((element) => {
+	polygonMap.forEach((element) => {
 		xp.push(element[0]);
 		yp.push(element[1]);
 	});
@@ -62,7 +62,7 @@ addMarkerBtn.addEventListener('click', async () => {
 	await map.on('click', addMarker);
 });
 
-/// polygin ///
+/// polygon ///
 
 let latlngs = [];
 
@@ -84,21 +84,18 @@ function addPolygon(e) {
 let addPolygonBtn = document.getElementById('addPolygon');
 addPolygonBtn.addEventListener('click', () => {
 	console.log('addPolygonBtn');
-	// localStorage.clear();
-	// sessionStorage.clear();
 	map.on('click', addPolygon);
 });
 
 let createPolygonBtn = document.getElementById('createPolygon');
 createPolygonBtn.addEventListener('click', () => {
 	console.log('createPolygonBtn');
-	// sessionStorage.setItem('polygon', JSON.stringify(latlngs));
 	map.off('click', addPolygon);
 
 	latlngs.length
 		? L.polygon(latlngs, { color: 'blue' }).addTo(map)
 		: alert('Нету новых точек');
 
-	latlngs = polygon;
-	// latlngs = [];
+	polygonMap = latlngs.slice();
+	latlngs = [];
 });
