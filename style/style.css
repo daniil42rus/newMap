@@ -2,24 +2,73 @@
     height: 100vh;
 }
 
-#addMarker,
-#addPolygon,
-#createPolygon,
-#howManyMarkers {
-    top: 80px;
-    left: 10px;
+
+.controll {
+    width: 200px;
+    display: flex;
+    align-items: center;
     position: absolute;
+    top: 110px;
+    left: 10px;
+    flex-wrap: wrap;
+}
+
+.marker__btn,
+.polygon__btn,
+.createPolygon__btn,
+.marker__input,
+.leaflet-control-zoom-in,
+.leaflet-touch .leaflet-bar a:first-child,
+.leaflet-touch .leaflet-bar a:last-child,
+.leaflet-control-zoom-out {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 135px;
+    height: 44px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    transition: .3s ease;
+    background: linear-gradient(90deg, #6680ff, #2eb4ee 50.52%, #1cfab7);
+    background-size: 100% 100%;
+    cursor: pointer;
     z-index: 1000;
 }
 
-#addPolygon {
-    top: 110px;
+.marker__input {
+    background-size: 170% 100%;
+
 }
 
-#createPolygon {
-    top: 140px;
+
+.marker__btn:hover,
+.polygon__btn:hover,
+.createPolygon__btn:hover,
+.leaflet-control-zoom-in:hover,
+.leaflet-control-zoom-out:hover,
+.leaflet-touch .leaflet-bar a:first-child:hover,
+.leaflet-touch .leaflet-bar a:last-child:hover {
+    background-size: 170% 100%;
 }
 
-#howManyMarkers {
-    top: 170px;
+
+
+.leaflet-touch .leaflet-control-layers, .leaflet-touch .leaflet-bar {
+    border: none;
+}
+
+.btn_active {
+    transform: scale(1.1);
+    transition: .3s ease;
+    background-size: 170% 100%;
+}
+
+.leaflet-bottom {
+    display: none;
 }

@@ -10,6 +10,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 let polygonMap = [];
 let howManyMarkersInput = document.getElementById('howManyMarkers');
+// howManyMarkersInput.textContent = 0
 
 function addMarker(e) {
 	console.log(polygonMap);
@@ -50,16 +51,19 @@ function addMarker(e) {
 		return c;
 	}
 	if (inPoly(x, y)) {
-		howManyMarkersInput.value++;
+		howManyMarkersInput.textContent++;
 	}
 
 	console.log(inPoly(x, y));
+	addMarkerBtn.classList.remove('btn_active');
 }
 
 let addMarkerBtn = document.getElementById('addMarker');
-addMarkerBtn.addEventListener('click', async () => {
+addMarkerBtn.addEventListener('click', () => {
+	console.log('123');
+	addMarkerBtn.classList.add('btn_active');
 	console.log('addMarkerBtn');
-	await map.on('click', addMarker);
+	map.on('click', addMarker);
 });
 
 /// polygon ///
@@ -83,12 +87,17 @@ function addPolygon(e) {
 
 let addPolygonBtn = document.getElementById('addPolygon');
 addPolygonBtn.addEventListener('click', () => {
+	addPolygonBtn.classList.add('btn_active');
+
 	console.log('addPolygonBtn');
 	map.on('click', addPolygon);
 });
 
 let createPolygonBtn = document.getElementById('createPolygon');
 createPolygonBtn.addEventListener('click', () => {
+	addPolygonBtn.classList.remove('btn_active');
+
+	createPolygonBtn.classList.add('btn_active');
 	console.log('createPolygonBtn');
 	map.off('click', addPolygon);
 
@@ -98,4 +107,5 @@ createPolygonBtn.addEventListener('click', () => {
 
 	polygonMap = latlngs.slice();
 	latlngs = [];
+	createPolygonBtn.classList.remove('btn_active');
 });

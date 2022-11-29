@@ -15,10 +15,14 @@
 
 <body>
     <div id="map"></div>
-    <button id="addMarker">Добавить маркер</button>
-    <button id="addPolygon">Добавить точки для полигона</button>
-    <button id="createPolygon">Создать полигон</button>
-    <input id="howManyMarkers" placeholder="Количество маркеров" readonly></input>
+    <div class="controll">
+
+        <button id="addMarker" class="marker__btn" title="Добавить маркер">Добавить маркер</button>
+        <button id="addPolygon" class="polygon__btn" title="Добавить точки для полигона">Добавить точки для полигона</button>
+        <button id="createPolygon" class="createPolygon__btn" title="Создать полигон">Создать полигон</button>
+        <lable id="howManyMarkers" class="marker__input" title="Количевство маркеров в полигоне">0</lable>
+    </div>
+
 </body>
 
 </html>
